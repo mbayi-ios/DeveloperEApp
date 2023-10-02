@@ -151,6 +151,29 @@ class FriendsIntegrationTests: XCTestCase {
         XCTAssertEqual(friendsList.numberOfFriends(), 0, "friends count")
        // XCTAssertEqual(friendsList.errorMessage(), "2nd retry error", "error message")
     }
+    
+    func test_friendsList_withPremiumUser_showsCachedFriends_afterRetryingFailedAPIRequestTwice() throws {
+        let friend0 = aFriend(name: "a name", phone: "a phone")
+        let friend1 = aFriend(name: "another name", phone: "another phone")
+        
+        let friendsList = try SceneBuilder()
+            .build(
+                user: premiumUser(),
+                friendsAPI: .results([
+                    .failure(NSError(localizedDescription: "1st request error")),
+                    .failure(NSError(localizedDescription: "1st retry error")),
+                    .failure(NSError(localizedDescription: "2nd retry error"))
+                ]),
+                friendsCache: .once([friend0, friend1])
+            )
+            .friendsList()
+        
+        XCTAssertEqual(friendsList.numberOfFriends(), 2, "friends count")
+        XCTAssertEqual(friendsList.friendName(at: 0), friend0.name, "friend name at row 0")
+        XCTAssertEqual(friendsList.friendPhone(at: 0), friend0.phone, "friend phone at row 0")
+        XCTAssertEqual(friendsList.friendName(at: 1), friend1.name, "friend phone at row 1")
+        XCTAssertEqual(friendsList.friendPhone(at: 1), friend1.phone, "friend phone at row 1")
+    }
 }
 
 
