@@ -15,6 +15,7 @@
 		CD3E3F502ACB0ED70042516E /* SceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F4F2ACB0ED70042516E /* SceneBuilder.swift */; };
 		CD3E3F522ACB12620042516E /* ContainerViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F512ACB12620042516E /* ContainerViewControllerSpy.swift */; };
 		CD3E3F542ACB201D0042516E /* ListViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F532ACB201D0042516E /* ListViewController+TestHelpers.swift */; };
+		CD3E3F562ACB25300042516E /* UIBarButtonItem+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */; };
 		CDCCD45C2ACA8A1200763273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */; };
 		CDCCD45E2ACA8A1200763273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */; };
 		CDCCD4602ACA8A1200763273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45F2ACA8A1200763273 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		CD3E3F4F2ACB0ED70042516E /* SceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneBuilder.swift; sourceTree = "<group>"; };
 		CD3E3F512ACB12620042516E /* ContainerViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewControllerSpy.swift; sourceTree = "<group>"; };
 		CD3E3F532ACB201D0042516E /* ListViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+TestHelpers.swift"; sourceTree = "<group>"; };
 		CDCCD4582ACA8A1200763273 /* IACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				CD3E3F4F2ACB0ED70042516E /* SceneBuilder.swift */,
 				CD3E3F512ACB12620042516E /* ContainerViewControllerSpy.swift */,
 				CD3E3F532ACB201D0042516E /* ListViewController+TestHelpers.swift */,
+				CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				CD3E3F472ACB007B0042516E /* FriendsIntegrationTests.swift in Sources */,
 				CD3E3F3E2ACB00560042516E /* IACCTests.swift in Sources */,
 				CD3E3F502ACB0ED70042516E /* SceneBuilder.swift in Sources */,
+				CD3E3F562ACB25300042516E /* UIBarButtonItem+TestHelpers.swift in Sources */,
 				CD3E3F4B2ACB00B20042516E /* FriendsAPI+TestHelpers.swift in Sources */,
 				CD3E3F522ACB12620042516E /* ContainerViewControllerSpy.swift in Sources */,
 				CD3E3F4D2ACB00C30042516E /* Friend+TestHelpers.swift in Sources */,

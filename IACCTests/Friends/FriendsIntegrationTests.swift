@@ -41,6 +41,12 @@ class FriendsIntegrationTests: XCTestCase {
         
         XCTAssertEqual(friendsList.title, "Friends")
     }
+    
+    func test_friendsList_hasAddFriendButton() throws {
+        let friendsList = try SceneBuilder().build().friendsList()
+        
+        XCTAssertTrue(friendsList.hasAddFriendButton, "add friend button not found")
+    }
 }
 
 
@@ -49,5 +55,11 @@ private extension ContainerViewControllerSpy {
         let vc = try XCTUnwrap((rootTab(atIndex: 0) as UINavigationController).topViewController as? ListViewController, "couldnt find friends list")
         vc.prepareForFirstAppearance()
         return vc
+    }
+}
+
+private extension ListViewController {
+    var hasAddFriendButton: Bool {
+        navigationItem.rightBarButtonItem?.systemItem == .add
     }
 }
