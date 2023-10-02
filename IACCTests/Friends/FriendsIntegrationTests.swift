@@ -53,6 +53,24 @@ class FriendsIntegrationTests: XCTestCase {
         
         XCTAssertFalse(friendsList.isPresentingAddFriendView, "precondition: shouldn't present add friend view before tapping button")
     }
+    
+    func test_friendsList_withNonPremiumUser_showsFriends_whenAPIRequestSucceeds() throws {
+        let friend0 = aFriend(name: "a name", phone: "a phone")
+        let friend1 = aFriend(name: "another name", phone: "another phone")
+        let friendsList = try SceneBuilder()
+            .build(
+                user: nonPremiumUser(),
+                friendsAPI: .once([friend0, friend1]),
+                friendsCache: .never
+            )
+            .friendsList()
+        
+        XCTAssertEqual(friendsList.numberOfFriends(), 2, "friends count")
+        XCTAssertEqual(friendsList.friendName(at: 0), friend0.name, "friend name at row 0")
+        XCTAssertEqual(friendsList.friendPhone(at: 0), friend0.phone, "friend phone at row 0")
+        XCTAssertEqual(friendsList.friendName(at: 1), friend1.name, "friend name at row 1")
+        XCTAssertEqual(friendsList.friendPhone(at: 1), friend1.phone, "friend phone at row 1")
+    }
 }
 
 
@@ -65,6 +83,18 @@ private extension ContainerViewControllerSpy {
 }
 
 private extension ListViewController {
+    func numberOfFriends() -> Int {
+        numberOfRows(atSection: friendsSection)
+    }
+    
+    func friendName(at row: Int) -> String? {
+        title(at: IndexPath(row: row, section: friendsSection))
+    }
+    
+    func friendPhone(at row: Int) -> String? {
+        subtitle(at: IndexPath(row: row, section: friendsSection))
+    }
+    
     var hasAddFriendButton: Bool {
         navigationItem.rightBarButtonItem?.systemItem == .add
     }
@@ -72,4 +102,6 @@ private extension ListViewController {
     var isPresentingAddFriendView: Bool {
         navigationController?.topViewController is AddFriendViewController
     }
+    
+    private var friendsSection: Int { 0 }
 }

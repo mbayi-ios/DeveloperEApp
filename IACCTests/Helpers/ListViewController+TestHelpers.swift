@@ -11,6 +11,24 @@ extension ListViewController {
         endAppearanceTransition()
     }
     
+    func numberOfRows(atSection section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+    
+    func cell(at indexPath: IndexPath) -> UITableViewCell? {
+        guard numberOfRows(atSection: indexPath.section) > indexPath.row else { return nil }
+        return tableView.dataSource?.tableView(tableView, cellForRowAt: indexPath)
+    }
+    
+    func title(at indexPath: IndexPath) -> String? {
+        cell(at: indexPath)?.textLabel?.text
+    }
+    
+    func subtitle(at indexPath: IndexPath) -> String? {
+        cell(at: indexPath)?.detailTextLabel?.text?
+            .replacingOccurrences(of: " ", with: " ")
+    }
+    
     private func replaceRefreshControlWithSpy() {
         let currentRefreshControl = refreshControl
         let spyRefreshControl = UIRefreshControlSpy()
