@@ -111,6 +111,29 @@ class FriendsIntegrationTests: XCTestCase {
         XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hid loading indicator afrer retrying API Refresh request")
     }
     
+    func test_friendsList_showLoadingIndicator_whileRetryingAPIRequest_andLoadingFromCache() throws {
+        let friendsList = try SceneBuilder()
+            .build(
+                user: premiumUser(),
+                friendsAPI: .resultBuilder {
+                    let friendsList = try? ContainerViewControllerSpy.current.friendsList()
+                    XCTAssertEqual(friendsList?.isShowingLoadingIndicator(), true, "should show loading indicator while trying API Request")
+                    return .failure(anError())
+                },
+                friendsCache: .resultBuilder{
+                    let friendsList = try? ContainerViewControllerSpy.current.friendsList()
+                    XCTAssertEqual(friendsList?.isShowingLoadingIndicator(), true, "should show loading indicator until cache request completes")
+                    return .failure(anError())
+                }
+            )
+            .friendsList()
+        
+        XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hide loading indicator ocne cache reqeust completes")
+        
+        friendsList.simulateRefresh()
+        
+        XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hide loading indicator once cache refresh request completes")
+    }
 }
 
 
