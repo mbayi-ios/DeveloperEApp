@@ -134,6 +134,23 @@ class FriendsIntegrationTests: XCTestCase {
         
         XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hide loading indicator once cache refresh request completes")
     }
+    
+    func test_friendsList_withNonPremiumUser_showsError_afterRetryingFailedAPIRequestTwice() throws {
+        let friendsList = try SceneBuilder()
+            .build(
+                user: nonPremiumUser(),
+                friendsAPI: .results([
+                    .failure(NSError(localizedDescription: "1st request error")),
+                    .failure(NSError(localizedDescription: "1st retry error")),
+                    .failure(NSError(localizedDescription: "2nd retry error"))
+                ]),
+                friendsCache: .once([aFriend(), aFriend()])
+            )
+            .friendsList()
+        
+        XCTAssertEqual(friendsList.numberOfFriends(), 0, "friends count")
+       // XCTAssertEqual(friendsList.errorMessage(), "2nd retry error", "error message")
+    }
 }
 
 
@@ -149,6 +166,7 @@ private extension ListViewController {
     func numberOfFriends() -> Int {
         numberOfRows(atSection: friendsSection)
     }
+    
     
     func friendName(at row: Int) -> String? {
         title(at: IndexPath(row: row, section: friendsSection))

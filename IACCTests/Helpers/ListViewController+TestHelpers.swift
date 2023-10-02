@@ -2,6 +2,14 @@ import UIKit
 @testable import IACC
 
 extension ListViewController {
+    func errorMessage() -> String? {
+        presentedAlertView()?.message
+    }
+    
+    private func presentedAlertView() -> UIAlertController? {
+        presenterVC.presentedViewController as? UIAlertController
+    }
+    
     func prepareForFirstAppearance() {
         guard !isViewLoaded else { return }
         
