@@ -47,6 +47,12 @@ class FriendsIntegrationTests: XCTestCase {
         
         XCTAssertTrue(friendsList.hasAddFriendButton, "add friend button not found")
     }
+    
+    func test_friendsList_addFriendButton_showsAddFriendViewOnTap() throws {
+        let friendsList = try SceneBuilder().build().friendsList()
+        
+        XCTAssertFalse(friendsList.isPresentingAddFriendView, "precondition: shouldn't present add friend view before tapping button")
+    }
 }
 
 
@@ -61,5 +67,9 @@ private extension ContainerViewControllerSpy {
 private extension ListViewController {
     var hasAddFriendButton: Bool {
         navigationItem.rightBarButtonItem?.systemItem == .add
+    }
+    
+    var isPresentingAddFriendView: Bool {
+        navigationController?.topViewController is AddFriendViewController
     }
 }
