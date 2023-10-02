@@ -20,6 +20,14 @@ extension ListViewController {
         return tableView.dataSource?.tableView(tableView, cellForRowAt: indexPath)
     }
     
+    func isShowingLoadingIndicator() -> Bool {
+        refreshControl?.isRefreshing == true
+    }
+    
+    func simulateRefresh() {
+        refreshControl?.sendActions(for: .valueChanged)
+    }
+    
     func title(at indexPath: IndexPath) -> String? {
         cell(at: indexPath)?.textLabel?.text
     }

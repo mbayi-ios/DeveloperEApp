@@ -71,6 +71,25 @@ class FriendsIntegrationTests: XCTestCase {
         XCTAssertEqual(friendsList.friendName(at: 1), friend1.name, "friend name at row 1")
         XCTAssertEqual(friendsList.friendPhone(at: 1), friend1.phone, "friend phone at row 1")
     }
+    
+    func test_friendsList_showsLoadingIndicator_untilAPIRequestSucceeds() throws  {
+        let friendsList = try SceneBuilder()
+            .build(
+                friendsAPI: .resultBuilder {
+                    let friendsList = try? ContainerViewControllerSpy.current.friendsList()
+                    XCTAssertEqual(friendsList?.isShowingLoadingIndicator(), true, "should show loading indicator unitl API request completes")
+                    return .success([aFriend()])
+                },
+                friendsCache: .never
+            )
+            .friendsList()
+        
+        XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hide loading indicator once API request completes")
+        
+        friendsList.simulateRefresh()
+        
+        XCTAssertEqual(friendsList.isShowingLoadingIndicator(), false, "should hide loading indicator once API refesh request completes")
+    }
 }
 
 
