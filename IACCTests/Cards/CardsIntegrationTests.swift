@@ -26,6 +26,12 @@ class CardsIntegrationTest: XCTestCase {
         
         XCTAssertTrue(cardsList.hasAddCardButton, "add card button not found")
     }
+    
+    func test_cardsList_addCardButton_showsAddCardViewOnTap() throws {
+        let cardsList = try SceneBuilder().build().cardsList()
+        
+        XCTAssertFalse(cardsList.isPresentingAddCardView, "precondigion: shouldn't present add card view before tapping button")
+    }
 }
 
 
@@ -41,5 +47,9 @@ private extension ContainerViewControllerSpy {
 private extension ListViewController {
     var hasAddCardButton: Bool {
         navigationItem.rightBarButtonItem?.systemItem == .add
+    }
+    
+    var isPresentingAddCardView: Bool {
+        navigationController?.topViewController is AddCardViewController
     }
 }
