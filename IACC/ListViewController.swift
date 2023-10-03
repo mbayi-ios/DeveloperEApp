@@ -38,7 +38,7 @@ class ListViewController: UITableViewController {
             
         } else if fromCardsScreen {
             shouldRetry = false
-            title = "Card"
+            title = "Cards"
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCard))
             

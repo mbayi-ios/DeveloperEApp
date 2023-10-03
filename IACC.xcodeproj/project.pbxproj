@@ -22,6 +22,7 @@
 		CD3E3F5E2ACBDE260042516E /* TransfersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5D2ACBDE260042516E /* TransfersAPI.swift */; };
 		CD3E3F602ACBE3040042516E /* CardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5F2ACBE3040042516E /* CardAPI.swift */; };
 		CD3E3F622ACBE4C10042516E /* ArticlesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */; };
+		CD3E3F662ACBFCE80042516E /* CardsIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F652ACBFCE80042516E /* CardsIntegrationTests.swift */; };
 		CDCCD45C2ACA8A1200763273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */; };
 		CDCCD45E2ACA8A1200763273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */; };
 		CDCCD4602ACA8A1200763273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45F2ACA8A1200763273 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		CD3E3F5D2ACBDE260042516E /* TransfersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersAPI.swift; sourceTree = "<group>"; };
 		CD3E3F5F2ACBE3040042516E /* CardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPI.swift; sourceTree = "<group>"; };
 		CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesAPI.swift; sourceTree = "<group>"; };
+		CD3E3F652ACBFCE80042516E /* CardsIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsIntegrationTests.swift; sourceTree = "<group>"; };
 		CDCCD4582ACA8A1200763273 /* IACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		CD3E3F3C2ACB00560042516E /* IACCTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD3E3F632ACBFCD20042516E /* Cards */,
 				CD3E3F4E2ACB0EC00042516E /* Helpers */,
 				CD3E3F442ACB00600042516E /* Friends */,
 				CD3E3F3D2ACB00560042516E /* IACCTests.swift */,
@@ -135,6 +138,22 @@
 				CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */,
 				CD3E3F572ACB31360042516E /* User+TestHelpers.swift */,
 				CD3E3F592ACB38850042516E /* NSError+TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CD3E3F632ACBFCD20042516E /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				CD3E3F642ACBFCD90042516E /* Helpers */,
+				CD3E3F652ACBFCE80042516E /* CardsIntegrationTests.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		CD3E3F642ACBFCD90042516E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -287,6 +306,7 @@
 				CD3E3F3E2ACB00560042516E /* IACCTests.swift in Sources */,
 				CD3E3F502ACB0ED70042516E /* SceneBuilder.swift in Sources */,
 				CD3E3F562ACB25300042516E /* UIBarButtonItem+TestHelpers.swift in Sources */,
+				CD3E3F662ACBFCE80042516E /* CardsIntegrationTests.swift in Sources */,
 				CD3E3F4B2ACB00B20042516E /* FriendsAPI+TestHelpers.swift in Sources */,
 				CD3E3F582ACB31360042516E /* User+TestHelpers.swift in Sources */,
 				CD3E3F522ACB12620042516E /* ContainerViewControllerSpy.swift in Sources */,
