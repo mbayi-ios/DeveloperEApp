@@ -18,6 +18,10 @@
 		CD3E3F562ACB25300042516E /* UIBarButtonItem+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */; };
 		CD3E3F582ACB31360042516E /* User+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F572ACB31360042516E /* User+TestHelpers.swift */; };
 		CD3E3F5A2ACB38850042516E /* NSError+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F592ACB38850042516E /* NSError+TestHelpers.swift */; };
+		CD3E3F5C2ACBDC030042516E /* SegmentNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5B2ACBDC030042516E /* SegmentNavigationViewController.swift */; };
+		CD3E3F5E2ACBDE260042516E /* TransfersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5D2ACBDE260042516E /* TransfersAPI.swift */; };
+		CD3E3F602ACBE3040042516E /* CardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5F2ACBE3040042516E /* CardAPI.swift */; };
+		CD3E3F622ACBE4C10042516E /* ArticlesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */; };
 		CDCCD45C2ACA8A1200763273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */; };
 		CDCCD45E2ACA8A1200763273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */; };
 		CDCCD4602ACA8A1200763273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45F2ACA8A1200763273 /* ViewController.swift */; };
@@ -55,6 +59,10 @@
 		CD3E3F552ACB25300042516E /* UIBarButtonItem+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+TestHelpers.swift"; sourceTree = "<group>"; };
 		CD3E3F572ACB31360042516E /* User+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+TestHelpers.swift"; sourceTree = "<group>"; };
 		CD3E3F592ACB38850042516E /* NSError+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+TestHelpers.swift"; sourceTree = "<group>"; };
+		CD3E3F5B2ACBDC030042516E /* SegmentNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentNavigationViewController.swift; sourceTree = "<group>"; };
+		CD3E3F5D2ACBDE260042516E /* TransfersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersAPI.swift; sourceTree = "<group>"; };
+		CD3E3F5F2ACBE3040042516E /* CardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPI.swift; sourceTree = "<group>"; };
+		CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesAPI.swift; sourceTree = "<group>"; };
 		CDCCD4582ACA8A1200763273 /* IACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +173,10 @@
 				CDCCD4772ACA9ADC00763273 /* FriendsCache.swift */,
 				CDCCD4792ACA9D1900763273 /* Helpers.swift */,
 				CDCCD47B2ACA9E2C00763273 /* User.swift */,
+				CD3E3F5B2ACBDC030042516E /* SegmentNavigationViewController.swift */,
+				CD3E3F5D2ACBDE260042516E /* TransfersAPI.swift */,
+				CD3E3F5F2ACBE3040042516E /* CardAPI.swift */,
+				CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */,
 			);
 			path = IACC;
 			sourceTree = "<group>";
@@ -290,13 +302,17 @@
 				CDCCD4602ACA8A1200763273 /* ViewController.swift in Sources */,
 				CDCCD45C2ACA8A1200763273 /* AppDelegate.swift in Sources */,
 				CDCCD4762ACA99F800763273 /* FriendsAPI.swift in Sources */,
+				CD3E3F602ACBE3040042516E /* CardAPI.swift in Sources */,
 				CDCCD4702ACA8B5B00763273 /* MainTabBarController.swift in Sources */,
 				CDCCD47A2ACA9D1900763273 /* Helpers.swift in Sources */,
 				CDCCD4782ACA9ADC00763273 /* FriendsCache.swift in Sources */,
 				CDCCD4722ACA8C8500763273 /* ListViewController.swift in Sources */,
 				CDCCD45E2ACA8A1200763273 /* SceneDelegate.swift in Sources */,
 				CDCCD47C2ACA9E2C00763273 /* User.swift in Sources */,
+				CD3E3F5C2ACBDC030042516E /* SegmentNavigationViewController.swift in Sources */,
+				CD3E3F622ACBE4C10042516E /* ArticlesAPI.swift in Sources */,
 				CDCCD4742ACA8D7500763273 /* NotImplementedViewControllers.swift in Sources */,
+				CD3E3F5E2ACBDE260042516E /* TransfersAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

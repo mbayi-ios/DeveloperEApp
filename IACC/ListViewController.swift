@@ -18,6 +18,9 @@ class ListViewController: UITableViewController {
     var longDateStyle = false
     
     var fromFriendsScreen = false
+    var fromSentTransfersScreen = false
+    var fromCardsScreen  = false
+    var fromReceivedTransfersScreen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +35,28 @@ class ListViewController: UITableViewController {
             title = "Friends"
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFriend))
+            
+        } else if fromCardsScreen {
+            shouldRetry = false
+            title = "Card"
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCard))
+            
+        } else if fromSentTransfersScreen {
+            shouldRetry = true
+            maxRetryCount = 1
+            longDateStyle = true
+            
+            navigationItem.title = "Sent"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Send", style: .done, target: self, action: #selector(sendMoney))
+            
+        } else if fromReceivedTransfersScreen {
+            shouldRetry = true
+            maxRetryCount = 1
+            longDateStyle = false
+            
+            navigationItem.title = "Received"
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Request", style: .done, target: self, action: #selector(requestMoney))
         }
     }
     
@@ -52,6 +77,20 @@ class ListViewController: UITableViewController {
                     self?.handleAPIResult(result)
                 }
             }
+            
+        } else if fromCardsScreen {
+            CardAPI.shared.loadCards { [weak self] result  in
+                DispatchQueue.mainAsyncIfNeeded {
+                    self?.handleAPIResult(result)
+                }
+            }
+            
+        } else if fromSentTransfersScreen || fromReceivedTransfersScreen {
+            TransfersAPI.shared.loadTransfers { [weak self] result  in
+                DispatchQueue.mainAsyncIfNeeded {
+                    self?.handleAPIResult(result)
+                }
+            }
         } else {
             fatalError("Unknown context")
         }
@@ -66,7 +105,16 @@ class ListViewController: UITableViewController {
             
             
             self.retryCount = 0
+            
             var filteredItems = items as [Any]
+            
+            if let transfers = items as? [Transfer] {
+                if fromSentTransfersScreen {
+                    filteredItems = transfers.filter(\.isSender)
+                } else {
+                    filteredItems = transfers.filter{ !$0.isSender}
+                }
+            }
             
             self.items = filteredItems
             self.refreshControl?.endRefreshing()
@@ -119,7 +167,7 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "ItemCell")
-        cell.configure(item)
+        cell.configure(item, longDateStyle: longDateStyle)
         return cell
     }
     
@@ -138,14 +186,47 @@ class ListViewController: UITableViewController {
         navigationController?.pushViewController(AddFriendViewController(), animated: true)
     }
     
+    @objc func addCard() {
+        navigationController?.pushViewController(AddCardViewController(), animated: true)
+    }
+    
+    @objc func sendMoney() {
+        navigationController?.pushViewController(SendMoneyViewController(), animated: true)
+    }
+    
+    @objc func requestMoney() {
+        navigationController?.pushViewController(RequestMoneyViewController(), animated: true)
+    }
 }
 
 
 extension UITableViewCell {
-    func configure(_ item: Any) {
+    func configure(_ item: Any, longDateStyle: Bool) {
         if let friend = item as? Friend {
             textLabel?.text = friend.name
             detailTextLabel?.text = friend.phone
+        } else if let card = item as? Card {
+            textLabel?.text = card.number
+            detailTextLabel?.text = card.holder
+            
+        } else if let transfer = item as? Transfer {
+            let numberFormatter = Formatters.number
+            numberFormatter.numberStyle = .currency
+            numberFormatter.currencyCode = transfer.currencyCode
+            
+            let amount = numberFormatter.string(from: transfer.amount as NSNumber)!
+            textLabel?.text = "\(amount) • \(transfer.description)"
+            
+            let dateFormatter = Formatters.date
+            if longDateStyle {
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .short
+                detailTextLabel?.text = "Sent to: \(transfer.recipient) on \(dateFormatter.string(from: transfer.date))"
+            } else {
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+                detailTextLabel?.text = "received from: \(transfer.sender) on \(dateFormatter.string(from: transfer.date))"
+            }
         } else {
             fatalError("unknown item: \(item)")
         }

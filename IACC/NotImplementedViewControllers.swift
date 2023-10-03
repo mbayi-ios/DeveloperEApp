@@ -17,6 +17,7 @@ class FriendDetailsViewController: NotImplementedViewController {
         title = "Friends Details"
     }
 }
+
 class AddFriendViewController: NotImplementedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,29 @@ class AddFriendViewController: NotImplementedViewController {
     }
 }
 
+class AddCardViewController: NotImplementedViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Add Card"
+    }
+}
+
+class SendMoneyViewController: NotImplementedViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Send Money"
+    }
+}
+
+class RequestMoneyViewController: NotImplementedViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Request Money"
+    }
+}
 
 
 class NotImplementedViewController: UIViewController {
