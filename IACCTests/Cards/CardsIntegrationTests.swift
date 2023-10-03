@@ -20,6 +20,12 @@ class CardsIntegrationTest: XCTestCase {
         
         XCTAssertEqual(cardsList.title, "Cards", "title")
     }
+    
+    func test_cardsList_hasAddCardButton() throws {
+        let cardsList = try SceneBuilder().build().cardsList()
+        
+        XCTAssertTrue(cardsList.hasAddCardButton, "add card button not found")
+    }
 }
 
 
@@ -28,5 +34,12 @@ private extension ContainerViewControllerSpy {
         let vc = try XCTUnwrap((rootTab(atIndex: 2) as UINavigationController).topViewController as? ListViewController, "couldnt find card list")
         vc.prepareForFirstAppearance()
         return vc
+    }
+}
+
+
+private extension ListViewController {
+    var hasAddCardButton: Bool {
+        navigationItem.rightBarButtonItem?.systemItem == .add
     }
 }
