@@ -13,13 +13,15 @@ struct SceneBuilder {
     func build(
         user: User? = nil,
         friendsAPI: FriendsAPI = .once([]),
-        friendsCache: FriendsCache = .never
+        friendsCache: FriendsCache = .never,
+        cardsAPI: CardAPI = .once([])
     )  throws -> ContainerViewControllerSpy {
         SceneDelegate.main.window?.rootViewController = nil
         SceneDelegate.main.cache = friendsCache
         
         User.shared = user
         FriendsAPI.shared = friendsAPI
+        CardAPI.shared = cardsAPI
         
         return ContainerViewControllerSpy(SceneDelegate.main.makeRootViewController())
     }

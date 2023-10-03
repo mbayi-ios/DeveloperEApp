@@ -23,6 +23,8 @@
 		CD3E3F602ACBE3040042516E /* CardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F5F2ACBE3040042516E /* CardAPI.swift */; };
 		CD3E3F622ACBE4C10042516E /* ArticlesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */; };
 		CD3E3F662ACBFCE80042516E /* CardsIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F652ACBFCE80042516E /* CardsIntegrationTests.swift */; };
+		CD3E3F682ACC143A0042516E /* Card+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F672ACC143A0042516E /* Card+TestHelpers.swift */; };
+		CD3E3F6A2ACC14DA0042516E /* CardAPI+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3E3F692ACC14DA0042516E /* CardAPI+TestHelpers.swift */; };
 		CDCCD45C2ACA8A1200763273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */; };
 		CDCCD45E2ACA8A1200763273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */; };
 		CDCCD4602ACA8A1200763273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCCD45F2ACA8A1200763273 /* ViewController.swift */; };
@@ -65,6 +67,8 @@
 		CD3E3F5F2ACBE3040042516E /* CardAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPI.swift; sourceTree = "<group>"; };
 		CD3E3F612ACBE4C10042516E /* ArticlesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesAPI.swift; sourceTree = "<group>"; };
 		CD3E3F652ACBFCE80042516E /* CardsIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsIntegrationTests.swift; sourceTree = "<group>"; };
+		CD3E3F672ACC143A0042516E /* Card+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+TestHelpers.swift"; sourceTree = "<group>"; };
+		CD3E3F692ACC14DA0042516E /* CardAPI+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardAPI+TestHelpers.swift"; sourceTree = "<group>"; };
 		CDCCD4582ACA8A1200763273 /* IACC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IACC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCCD45B2ACA8A1200763273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDCCD45D2ACA8A1200763273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		CD3E3F642ACBFCD90042516E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CD3E3F672ACC143A0042516E /* Card+TestHelpers.swift */,
+				CD3E3F692ACC14DA0042516E /* CardAPI+TestHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 			files = (
 				CD3E3F542ACB201D0042516E /* ListViewController+TestHelpers.swift in Sources */,
 				CD3E3F472ACB007B0042516E /* FriendsIntegrationTests.swift in Sources */,
+				CD3E3F682ACC143A0042516E /* Card+TestHelpers.swift in Sources */,
 				CD3E3F5A2ACB38850042516E /* NSError+TestHelpers.swift in Sources */,
 				CD3E3F3E2ACB00560042516E /* IACCTests.swift in Sources */,
 				CD3E3F502ACB0ED70042516E /* SceneBuilder.swift in Sources */,
@@ -311,6 +318,7 @@
 				CD3E3F582ACB31360042516E /* User+TestHelpers.swift in Sources */,
 				CD3E3F522ACB12620042516E /* ContainerViewControllerSpy.swift in Sources */,
 				CD3E3F4D2ACB00C30042516E /* Friend+TestHelpers.swift in Sources */,
+				CD3E3F6A2ACC14DA0042516E /* CardAPI+TestHelpers.swift in Sources */,
 				CD3E3F492ACB00A20042516E /* FriendsCache+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
